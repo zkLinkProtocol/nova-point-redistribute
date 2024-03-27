@@ -137,3 +137,26 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/default/index.ts
+
+  - kind: ethereum
+    name: rsETH
+    network: zklink-nova
+    source:
+      address: "0x4A2da287deB06163fB4D77c52901683d69bD06f4"
+      abi: l20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: l20
+          file: ./abis/l20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/l-20.ts
+
