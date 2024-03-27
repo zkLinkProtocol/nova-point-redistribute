@@ -1,0 +1,139 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+# magpie 4 tokens
+  - kind: ethereum
+    name: magpie-mstETH
+    network: zklink-nova
+    source:
+      address: "0x7b1fcd81F8b91C5eF3743c4d56bf7C1E52c93360"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/magpie/index.ts
+
+  - kind: ethereum
+    name: magpie-mmETH
+    network: zklink-nova
+    source:
+      address: "0xB5B8C247C740d53b6Fbab10f1C17922788baeD54"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/magpie/index.ts
+
+  - kind: ethereum
+    name: magpie-mwbETH
+    network: zklink-nova
+    source:
+      address: "0x7F62B7a0A9848D5e261960Ff4B4009206aD00bd5"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/magpie/index.ts
+
+  - kind: ethereum
+    name: magpie-mswETH
+    network: zklink-nova
+    source:
+      address: "0xBB68f4548A1c26B6611cbB8087c25A616eDd8569"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/magpie/index.ts
+
+# puffer eth
+  - kind: ethereum
+    name: puffer-eth
+    network: zklink-nova
+    source:
+      address: "0x1B49eCf1A8323Db4abf48b2F5EFaA33F7DdAB3FC"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/default/index.ts
+# rsETH KelpDao Restaked ETH - 2 tokens
+  - kind: ethereum
+    name: rseth-KelpDao
+    network: zklink-nova
+    source:
+      address: "0x186c0c42C617f1Ce65C4f7DF31842eD7C5fD8260"
+      abi: ERC20
+      startBlock: 195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/default/index.ts

@@ -1,0 +1,22 @@
+{
+  "name": "l20",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ root/l20",
+    "create-local": "graph create --node http://localhost:8020/ root/l20",
+    "remove-local": "graph remove --node http://localhost:8020/ root/l20",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 root/l20",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.68.5",
+    "@graphprotocol/graph-ts": "0.32.0",
+    "bson": "^6.5.0",
+    "graph-cli": "^0.0.1"
+  },
+  "devDependencies": {
+    "matchstick-as": "^0.5.0"
+  }
+}
