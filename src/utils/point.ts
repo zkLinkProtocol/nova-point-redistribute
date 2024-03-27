@@ -14,6 +14,7 @@ export function loadOrCreatePoint(address: Bytes, project: string): Point {
     point = new Point(id);
     point.address = address;
     point.balance = BIGINT_ZERO;
+    point.project = project;
     point.timeWeightAmountIn = BIGINT_ZERO;
     point.timeWeightAmountOut = BIGINT_ZERO;
     point.save();
