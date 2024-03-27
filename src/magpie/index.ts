@@ -5,7 +5,11 @@ import {
   DENOMINATOR,
   DENOMINATOR_number,
 } from "../utils/constants";
-import { loadOrCreatePoint, toLowerCase } from "../utils/point";
+import {
+  loadOrCreatePoint,
+  loadOrCreateTotalPoint,
+  toLowerCase,
+} from "../utils/point";
 const PROJECT_ID = "magpie";
 export const LST_PRICE_MAP = new Map<string, BigInt>();
 
@@ -30,6 +34,7 @@ LST_PRICE_MAP.set(
 
 export function handleTransfer(event: TransferEvent): void {
   const stakeToken = toLowerCase(event.address);
+  const tokenAddress = stakeToken.toHexString();
   const weight = LST_PRICE_MAP.get(stakeToken.toHexString().toLowerCase());
   const transferShares = event.params.value;
   const from = toLowerCase(event.params.from);
@@ -38,20 +43,39 @@ export function handleTransfer(event: TransferEvent): void {
 
   const weightTransferShares = transferShares.times(weight).div(DENOMINATOR);
   const increase = timestamp.times(weightTransferShares);
+
+  const totalPoint = loadOrCreateTotalPoint(PROJECT_ID, tokenAddress);
+
   // process for sender
   if (from.notEqual(ADDRESS_ZERO)) {
     // burn or transfer to others
-    const point = loadOrCreatePoint(from, PROJECT_ID);
+    const point = loadOrCreatePoint(from, PROJECT_ID, tokenAddress);
     point.timeWeightAmountOut = point.timeWeightAmountOut.plus(increase);
-    point.balance = point.balance.minus(weightTransferShares);
+    point.balance = point.balance.minus(transferShares);
+    point.weightBalance = point.weightBalance.minus(weightTransferShares);
+
+    totalPoint.totalTimeWeightAmountOut =
+      totalPoint.totalTimeWeightAmountOut.plus(increase);
+    totalPoint.totalBalance = totalPoint.totalBalance.minus(transferShares);
+    totalPoint.totalWeightBalance =
+      totalPoint.totalWeightBalance.minus(weightTransferShares);
+
     point.save();
   }
 
   if (to.notEqual(ADDRESS_ZERO)) {
     // mint or receive token from others
-    const point = loadOrCreatePoint(to, PROJECT_ID);
+    const point = loadOrCreatePoint(to, PROJECT_ID, tokenAddress);
     point.timeWeightAmountIn = point.timeWeightAmountIn.plus(increase);
     point.balance = point.balance.plus(weightTransferShares);
+    point.weightBalance = point.weightBalance.plus(weightTransferShares);
+
+    totalPoint.totalTimeWeightAmountIn =
+      totalPoint.totalTimeWeightAmountIn.plus(increase);
+    totalPoint.totalBalance = totalPoint.totalBalance.plus(transferShares);
+    totalPoint.totalWeightBalance =
+      totalPoint.totalWeightBalance.plus(weightTransferShares);
+
     point.save();
   }
 }
