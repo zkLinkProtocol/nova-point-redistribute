@@ -78,4 +78,6 @@ export function handleTransfer(event: TransferEvent): void {
 
     point.save();
   }
+
+  totalPoint.save();
 }

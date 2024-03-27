@@ -48,4 +48,6 @@ export function handleTransfer(event: TransferEvent, projectId: string): void {
     totalPoint.totalWeightBalance = totalPoint.totalBalance;
     point.save();
   }
+
+  totalPoint.save();
 }
