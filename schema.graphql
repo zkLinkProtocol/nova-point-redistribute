@@ -17,4 +17,10 @@ type Point @entity {
   timeWeightAmountOut: BigInt!
 }
 
-
+type TotalPoint @entity {
+  id: Bytes! # hash(project)
+  project: String!
+  totalBalance: BigInt!
+  totalTimeWeightAmountIn: BigInt!
+  totalTimeWeightAmountOut: BigInt!
+}
