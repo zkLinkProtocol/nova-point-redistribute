@@ -1,10 +1,6 @@
-# point
+# nova-point-redistribute
 
-## magpie create pull request to magpie repo
-
-## xxx ratio..
-
-lrt-point-xx + the graph
-    add a new controller/api for xxx
-        query graph node get ratio data
-        
+# project id
+- magpie
+- puffer
+- rseth

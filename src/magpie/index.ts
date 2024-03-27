@@ -6,7 +6,7 @@ import {
   DENOMINATOR_number,
 } from "../utils/constants";
 import { loadOrCreatePoint, toLowerCase } from "../utils/point";
-
+const PROJECT_ID = "magpie";
 export const LST_PRICE_MAP = new Map<string, BigInt>();
 
 export const STETH = "0x7b1fcd81F8b91C5eF3743c4d56bf7C1E52c93360".toLowerCase();
@@ -41,7 +41,7 @@ export function handleTransfer(event: TransferEvent): void {
   // process for sender
   if (from.notEqual(ADDRESS_ZERO)) {
     // burn or transfer to others
-    const point = loadOrCreatePoint(from);
+    const point = loadOrCreatePoint(from, PROJECT_ID);
     point.timeWeightAmountOut = point.timeWeightAmountOut.plus(increase);
     point.balance = point.balance.minus(weightTransferShares);
     point.save();
@@ -49,7 +49,7 @@ export function handleTransfer(event: TransferEvent): void {
 
   if (to.notEqual(ADDRESS_ZERO)) {
     // mint or receive token from others
-    const point = loadOrCreatePoint(to);
+    const point = loadOrCreatePoint(to, PROJECT_ID);
     point.timeWeightAmountIn = point.timeWeightAmountIn.plus(increase);
     point.balance = point.balance.plus(weightTransferShares);
     point.save();

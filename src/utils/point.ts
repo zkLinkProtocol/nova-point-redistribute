@@ -1,13 +1,15 @@
 import { Point } from "../../generated/schema";
-import { Address, BigInt, Bytes, log, store } from "@graphprotocol/graph-ts";
+import { Bytes } from "@graphprotocol/graph-ts";
 import { BIGINT_ZERO } from "./constants";
 
-export function loadOrCreatePoint(address: Bytes): Point {
+export function loadOrCreatePoint(address: Bytes, project: string): Point {
   address = toLowerCase(address);
-  let point = Point.load(address);
+
+  const id = address.concat(Bytes.fromUTF8(project));
+  let point = Point.load(id);
 
   if (!point) {
-    point = new Point(address);
+    point = new Point(id);
     point.address = address;
     point.balance = BIGINT_ZERO;
     point.timeWeightAmountIn = BIGINT_ZERO;

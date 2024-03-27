@@ -9,7 +9,8 @@ type Transfer @entity(immutable: true) {
 }
 
 type Point @entity {
-  id: Bytes! # hash(address)
+  id: Bytes! # hash(address, project)
+  project: String!
   balance: BigInt!
   address: Bytes!
   timeWeightAmountIn: BigInt!
