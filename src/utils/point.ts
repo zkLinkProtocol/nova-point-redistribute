@@ -1,11 +1,13 @@
 import { Point } from "../../generated/schema";
-import { Bytes } from "@graphprotocol/graph-ts";
+import { Bytes, crypto } from "@graphprotocol/graph-ts";
 import { BIGINT_ZERO } from "./constants";
 
 export function loadOrCreatePoint(address: Bytes, project: string): Point {
   address = toLowerCase(address);
 
-  const id = address.concat(Bytes.fromUTF8(project));
+  const id = Bytes.fromByteArray(
+    crypto.keccak256(address.concat(Bytes.fromUTF8(project)))
+  );
   let point = Point.load(id);
 
   if (!point) {
