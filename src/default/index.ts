@@ -6,6 +6,16 @@ import {
   loadOrCreateTotalPoint,
 } from "../utils/point";
 
+/**
+ * 
+ return (
+      BigInt(weightBalance) * BigInt(timestamp) -
+      (BigInt(timeWeightAmountIn) - BigInt(timeWeightAmountOut))
+    );
+    => Sum{(Time_current - Time_n) * Amount_n}
+ * @param event 
+ * @param projectId 
+ */
 export function handleTransfer(event: TransferEvent, projectId: string): void {
   const stakeToken = toLowerCase(event.address);
   const tokenAddress = stakeToken.toHexString();
@@ -27,12 +37,13 @@ export function handleTransfer(event: TransferEvent, projectId: string): void {
     point.balance = point.balance.minus(transferShares);
     point.weightBalance = point.balance;
 
-    totalPoint.totalTimeWeightAmountOut =
-      totalPoint.totalTimeWeightAmountOut.plus(increase);
-    totalPoint.totalBalance = totalPoint.totalBalance.minus(transferShares);
-    totalPoint.totalWeightBalance = totalPoint.totalBalance;
-
     point.save();
+  } else if(to.notEqual(ADDRESS_ZERO)){
+    // mint
+    totalPoint.totalTimeWeightAmountIn =
+      totalPoint.totalTimeWeightAmountIn.plus(increase);
+    totalPoint.totalBalance = totalPoint.totalBalance.plus(transferShares);
+    totalPoint.totalWeightBalance = totalPoint.totalBalance;
   }
 
   if (to.notEqual(ADDRESS_ZERO)) {
@@ -41,12 +52,14 @@ export function handleTransfer(event: TransferEvent, projectId: string): void {
     point.timeWeightAmountIn = point.timeWeightAmountIn.plus(increase);
     point.balance = point.balance.plus(transferShares);
     point.weightBalance = point.balance;
-
-    totalPoint.totalTimeWeightAmountIn =
-      totalPoint.totalTimeWeightAmountIn.plus(increase);
-    totalPoint.totalBalance = totalPoint.totalBalance.plus(transferShares);
-    totalPoint.totalWeightBalance = totalPoint.totalBalance;
+    
     point.save();
+  } else if (from.notEqual(ADDRESS_ZERO)){
+    // burn
+    totalPoint.totalTimeWeightAmountOut =
+      totalPoint.totalTimeWeightAmountOut.plus(increase);
+    totalPoint.totalBalance = totalPoint.totalBalance.minus(transferShares);
+    totalPoint.totalWeightBalance = totalPoint.totalBalance;
   }
 
   totalPoint.save();
