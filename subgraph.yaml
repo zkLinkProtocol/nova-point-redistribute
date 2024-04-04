@@ -115,6 +115,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/puffer/index.ts
+
 # rsETH KelpDao Restaked ETH - 2 tokens
   - kind: ethereum
     name: rseth-KelpDao
@@ -160,3 +161,113 @@ dataSources:
           handler: handleTransfer
       file: ./src/rseth/index.ts
 
+# Nova
+  - kind: ethereum
+    name: layerBank-lETH
+    network: zklink-nova
+    source:
+      address: "0xb666582F612692525C4027d2a8280Ac06a055a95"
+      abi: ERC20
+      startBlock: 125976
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-lpufETH
+    network: zklink-nova
+    source:
+      address: "0xdd6105865380984716C6B2a1591F9643e6ED1C48"
+      abi: ERC20
+      startBlock: 125978
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-lSTONE
+    network: zklink-nova
+    source:
+      address: "0x8c4ba925D899ccde6d3657fcd9416c819EDbef97"
+      abi: ERC20
+      startBlock: 125980
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-lMANTA
+    network: zklink-nova
+    source:
+      address: "0x9f4baA696954EA954090231a582d535854B1b40E"
+      abi: ERC20
+      startBlock: 125985
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-lWBTC
+    network: zklink-nova
+    source:
+      address: "0xa04C6C48f32aBE11298e9228e7b34289a0068236"
+      abi: ERC20
+      startBlock: 125983
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
