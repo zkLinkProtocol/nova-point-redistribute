@@ -66,7 +66,7 @@ export function loadOrCreateWithdrawPoint(
     withdrawPoint.address = address;
     withdrawPoint.balance = BIGINT_ZERO;
     withdrawPoint.weightBalance = BIGINT_ZERO;
-    withdrawPoint.project = projectId;
+    withdrawPoint.project = tokenAddress;
     withdrawPoint.timeWeightAmountIn = BIGINT_ZERO;
     withdrawPoint.timeWeightAmountOut = BIGINT_ZERO;
     withdrawPoint.blockTimestamp = blockTimestamp;
