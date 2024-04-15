@@ -1,5 +1,5 @@
-import { Point, TotalPoint } from "../../generated/schema";
-import { Bytes, crypto } from "@graphprotocol/graph-ts";
+import { Point, TotalPoint, WithdrawPoint } from "../../generated/schema";
+import { BigInt, Bytes, crypto } from "@graphprotocol/graph-ts";
 import { BIGINT_ZERO } from "./constants";
 
 function getProjectId(projectId: string, tokenAddress: string): string {
@@ -47,6 +47,33 @@ export function loadOrCreateTotalPoint(
     totalPoint.save();
   }
   return totalPoint;
+}
+
+export function loadOrCreateWithdrawPoint(
+  address: Bytes,
+  tokenAddress: string,
+  blockTimestamp: BigInt
+): WithdrawPoint {
+  address = toLowerCase(address);
+  const projectId = `${tokenAddress}-${blockTimestamp}`;
+  const id = Bytes.fromByteArray(
+    crypto.keccak256(address.concat(Bytes.fromUTF8(projectId)))
+  );
+  let withdrawPoint = WithdrawPoint.load(id);
+
+  if (!withdrawPoint) {
+    withdrawPoint = new WithdrawPoint(id);
+    withdrawPoint.address = address;
+    withdrawPoint.balance = BIGINT_ZERO;
+    withdrawPoint.weightBalance = BIGINT_ZERO;
+    withdrawPoint.project = projectId;
+    withdrawPoint.timeWeightAmountIn = BIGINT_ZERO;
+    withdrawPoint.timeWeightAmountOut = BIGINT_ZERO;
+    withdrawPoint.blockTimestamp = blockTimestamp;
+
+    withdrawPoint.save();
+  }
+  return withdrawPoint;
 }
 
 export function toLowerCase(address: Bytes): Bytes {
