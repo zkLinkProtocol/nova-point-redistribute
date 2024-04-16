@@ -16,3 +16,14 @@ type TotalPoint @entity {
   totalTimeWeightAmountIn: BigInt!
   totalTimeWeightAmountOut: BigInt!
 }
+
+type WithdrawPoint @entity {
+  id: Bytes! # hash(address, project)
+  project: String!
+  balance: BigInt!
+  weightBalance: BigInt!
+  address: Bytes!
+  timeWeightAmountIn: BigInt!
+  timeWeightAmountOut: BigInt!
+  blockTimestamp: BigInt!
+}
