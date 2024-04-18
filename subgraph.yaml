@@ -249,14 +249,14 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/nova/index.ts
-
+  
   - kind: ethereum
     name: layerBank-lWBTC
     network: zklink-nova
     source:
-      address: "0xa04C6C48f32aBE11298e9228e7b34289a0068236"
+      address: "0x5Aa48B2DFD3Fd7cF1a3374AE1b0CCe54329E4bCf"
       abi: ERC20
-      startBlock: 125983
+      startBlock: 620661
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -271,6 +271,404 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/nova/index.ts
+  
+  - kind: ethereum
+    name: layerBank-lUSDC
+    network: zklink-nova
+    source:
+      address: "0xE00c509c4a54b8b775Ea5643F48de366a074b114"
+      abi: ERC20
+      startBlock: 620667
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+  
+  - kind: ethereum
+    name: layerBank-lUSDT
+    network: zklink-nova
+    source:
+      address: "0x245FB442F811f02D27BdebDEf23eD30810570aAE"
+      abi: ERC20
+      startBlock: 620672
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+# native-aqua  
+  - kind: ethereum
+    name: aqua-WETH
+    network: zklink-nova
+    source:
+      address: "0x9e5CabD99Dfb4e4a0C3Ea6Fe9c3E1A4ce4f5Fce5"
+      abi: ERC20
+      startBlock: 534944
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-ARB-ARB
+    network: zklink-nova
+    source:
+      address: "0x78136b2FbffdF2DF6261990Eec49dbd76Ca63C8F"
+      abi: ERC20
+      startBlock: 348221
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-MANTA-MANTA
+    network: zklink-nova
+    source:
+      address: "0x069FDE3A1439d39ba2eEf51559ba7006003A4853"
+      abi: ERC20
+      startBlock: 8203
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-STONE-ETH
+    network: zklink-nova
+    source:
+      address: "0x11ac330ef325Be47A9a95B5d5D1357690A7c55F0"
+      abi: ERC20
+      startBlock: 14147
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-STONE-MANTA
+    network: zklink-nova
+    source:
+      address: "0xa5B104E55d42f41cA1dbbb3ee95C62092c04b8f4"
+      abi: ERC20
+      startBlock: 738
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-rsETH-ETH
+    network: zklink-nova
+    source:
+      address: "0xae8AF9bdFE0099f6d0A5234009b78642EfAC1b00"
+      abi: ERC20
+      startBlock: 740
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-wstETH-ETH
+    network: zklink-nova
+    source:
+      address: "0x26c506C3D071bb5aDc16a6623c3fC8B508EaDAa0"
+      abi: ERC20
+      startBlock: 742
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-wUSDM-MANTA
+    network: zklink-nova
+    source:
+      address: "0x1274C609d81959DA5014288e9Ff8D22B6A781452"
+      abi: ERC20
+      startBlock: 25666
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-pufETH-ETH
+    network: zklink-nova
+    source:
+      address: "0xc2be3CC06Ab964f9E22e492414399DC4A58f96D3"
+      abi: ERC20
+      startBlock: 25670
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-USDT
+    network: zklink-nova
+    source:
+      address: "0x0f6Fc293AB973962f9172489f492514Bc43fbA81"
+      abi: ERC20
+      startBlock: 601362
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-WBTC
+    network: zklink-nova
+    source:
+      address: "0x97a96711ba21a10BcC5fa75809c2Acbb9dd0a1D4"
+      abi: ERC20
+      startBlock: 601379
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+  
+  - kind: ethereum
+    name: aqua-USDC
+    network: zklink-nova
+    source:
+      address: "0x603871A4DDEA08B9375ff6339E319AE7932b640b"
+      abi: ERC20
+      startBlock: 601388
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/aqua/index.ts
+
+# renzo
+  - kind: ethereum
+    name: ezeth-Arbitrum
+    network: zklink-nova
+    source:
+      address: "0x3FDB1939daB8e2d4F7a04212F142469Cd52d6402"
+      abi: ERC20
+      startBlock: 6987
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/renzo/index.ts
+  
+  - kind: ethereum
+    name: ezeth-Ethereum
+    network: zklink-nova
+    source:
+      address: "0xdA7Fa837112511F6E353091D7e388A4c45Ce7D6C"
+      abi: ERC20
+      startBlock: 193
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/renzo/index.ts
+  
+  - kind: ethereum
+    name: ezeth-Linea
+    network: zklink-nova
+    source:
+      address: "0x8FEe71Ab3Ffd6F8Aec8Cd2707Da20f4Da2bf583D"
+      abi: ERC20
+      startBlock: 60847
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/renzo/index.ts
+  
+  - kind: ethereum
+    name: ezeth-Blast
+    network: zklink-nova
+    source:
+      address: "0x8eDFa0151dF300C2b14bba9dA9f07A805565009d"
+      abi: ERC20
+      startBlock: 67461
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/renzo/index.ts
 
 # Withdraw
   - kind: ethereum
