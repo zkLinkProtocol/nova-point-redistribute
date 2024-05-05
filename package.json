@@ -1,13 +1,15 @@
 {
-  "name": "l20",
+  "name": "nova-points-redistribute",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ root/l20",
-    "create-local": "graph create --node http://localhost:8020/ root/l20",
-    "remove-local": "graph remove --node http://localhost:8020/ root/l20",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 root/l20",
+    "create": "graph create nova-points-redistribute-v2 --node http://localhost:8020",
+    "deploy": "graph deploy nova-points-redistribute-v2  --ipfs http://localhost:5001 --node http://localhost:8020/",
+    "remove": "graph remove --node http://localhost:8020 nova-points-redistribute",
+    "create-local": "graph create nova-points-redistribute-v2 --node http://3.114.68.110:8020",
+    "deploy-local": "graph deploy nova-points-redistribute-v2 --ipfs http://3.114.68.110:5001 --node http://3.114.68.110:8020",
+    "remove-local": "graph remove --node http://3.114.68.110:8020 nova-points-redistribute",
     "test": "graph test"
   },
   "dependencies": {
