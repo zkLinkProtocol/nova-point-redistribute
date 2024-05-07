@@ -4,7 +4,7 @@ indexerHints:
 schema:
   file: ./schema.graphql
 dataSources:
-# magpie 4 tokens
+  # magpie 4 tokens
   - kind: ethereum
     name: magpie-mstETH
     network: zklink-nova
@@ -93,7 +93,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/magpie/index.ts
 
-# puffer eth
+  # puffer eth
   - kind: ethereum
     name: puffer-eth
     network: zklink-nova
@@ -116,7 +116,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/puffer/index.ts
 
-# rsETH KelpDao Restaked ETH - 2 tokens
+  # rsETH KelpDao Restaked ETH - 2 tokens
   - kind: ethereum
     name: rseth-KelpDao
     network: zklink-nova
@@ -161,7 +161,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/rseth/index.ts
 
-# Nova
+  # Nova
   - kind: ethereum
     name: layerBank-lETH
     network: zklink-nova
@@ -249,58 +249,14 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/nova/index.ts
-  
+
   - kind: ethereum
-    name: layerBank-lWBTC
+    name: layerBank-eth-lWBTC
     network: zklink-nova
     source:
-      address: "0x5Aa48B2DFD3Fd7cF1a3374AE1b0CCe54329E4bCf"
+      address: "0xa04C6C48f32aBE11298e9228e7b34289a0068236"
       abi: ERC20
-      startBlock: 620661
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      entities:
-        - Transfer
-        - Point
-      abis:
-        - name: ERC20
-          file: ./abis/ERC20.json
-      eventHandlers:
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
-      file: ./src/nova/index.ts
-  
-  - kind: ethereum
-    name: layerBank-lUSDC
-    network: zklink-nova
-    source:
-      address: "0xE00c509c4a54b8b775Ea5643F48de366a074b114"
-      abi: ERC20
-      startBlock: 620667
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      entities:
-        - Transfer
-        - Point
-      abis:
-        - name: ERC20
-          file: ./abis/ERC20.json
-      eventHandlers:
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
-      file: ./src/nova/index.ts
-  
-  - kind: ethereum
-    name: layerBank-lUSDT
-    network: zklink-nova
-    source:
-      address: "0x245FB442F811f02D27BdebDEf23eD30810570aAE"
-      abi: ERC20
-      startBlock: 620672
+      startBlock: 125982
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -316,7 +272,73 @@ dataSources:
           handler: handleTransfer
       file: ./src/nova/index.ts
 
-# native-aqua  
+  - kind: ethereum
+    name: layerBank-merge-lWBTC
+    network: zklink-nova
+    source:
+      address: "0x5Aa48B2DFD3Fd7cF1a3374AE1b0CCe54329E4bCf"
+      abi: ERC20
+      startBlock: 620658
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-merge-lUSDC
+    network: zklink-nova
+    source:
+      address: "0xE00c509c4a54b8b775Ea5643F48de366a074b114"
+      abi: ERC20
+      startBlock: 620663
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  - kind: ethereum
+    name: layerBank-lUSDT
+    network: zklink-nova
+    source:
+      address: "0x245FB442F811f02D27BdebDEf23eD30810570aAE"
+      abi: ERC20
+      startBlock: 620670
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Point
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/nova/index.ts
+
+  # native-aqua
   - kind: ethereum
     name: aqua-WETH
     network: zklink-nova
@@ -338,7 +360,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-ARB-ARB
     network: zklink-nova
@@ -360,7 +382,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-MANTA-MANTA
     network: zklink-nova
@@ -382,7 +404,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-STONE-ETH
     network: zklink-nova
@@ -404,7 +426,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-STONE-MANTA
     network: zklink-nova
@@ -426,7 +448,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-rsETH-ETH
     network: zklink-nova
@@ -448,7 +470,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-wstETH-ETH
     network: zklink-nova
@@ -470,7 +492,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-wUSDM-MANTA
     network: zklink-nova
@@ -492,7 +514,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-pufETH-ETH
     network: zklink-nova
@@ -514,7 +536,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-USDT
     network: zklink-nova
@@ -536,7 +558,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-WBTC
     network: zklink-nova
@@ -558,7 +580,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/aqua/index.ts
-  
+
   - kind: ethereum
     name: aqua-USDC
     network: zklink-nova
@@ -581,7 +603,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/aqua/index.ts
 
-# renzo
+  # renzo
   - kind: ethereum
     name: ezeth-Arbitrum
     network: zklink-nova
@@ -603,7 +625,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/renzo/index.ts
-  
+
   - kind: ethereum
     name: ezeth-Ethereum
     network: zklink-nova
@@ -625,7 +647,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/renzo/index.ts
-  
+
   - kind: ethereum
     name: ezeth-Linea
     network: zklink-nova
@@ -647,7 +669,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/renzo/index.ts
-  
+
   - kind: ethereum
     name: ezeth-Blast
     network: zklink-nova
@@ -670,7 +692,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/renzo/index.ts
 
-# Withdraw
+  # Withdraw
   - kind: ethereum
     name: linea-bridge
     network: zklink-nova
@@ -692,7 +714,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: ethereum-bridge
     network: zklink-nova
@@ -714,7 +736,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: manta-bridge
     network: zklink-nova
@@ -736,7 +758,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: mantle-bridge
     network: zklink-nova
@@ -780,7 +802,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: arbitrum-bridge
     network: zklink-nova
@@ -802,7 +824,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: blast-bridge
     network: zklink-nova
@@ -824,7 +846,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: optimism-bridge
     network: zklink-nova
@@ -846,7 +868,7 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-  
+
   - kind: ethereum
     name: base-bridge
     network: zklink-nova
@@ -868,4 +890,3 @@ dataSources:
         - event: WithdrawalInitiated(indexed address,indexed address,indexed address,uint256)
           handler: handleWithdrawalInitiated
       file: ./src/bridge/withdraw.ts
-
