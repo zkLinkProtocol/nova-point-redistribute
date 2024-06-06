@@ -139,7 +139,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/directToken/index.ts
     context:
-      alias:
+      name:
         type: String
         data: "rsweth"
 
@@ -166,7 +166,7 @@ dataSources:
           handler: handleTransfer
       file: ./src/directToken/index.ts
     context:
-      alias:
+      name:
         type: String
         data: "sweth"
 
