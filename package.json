@@ -4,12 +4,12 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "create": "graph create nova-points-redistribute-v3 --node http://localhost:8020",
-    "deploy": "graph deploy nova-points-redistribute-v3  --ipfs http://localhost:5001 --node http://localhost:8020/",
-    "remove": "graph remove --node http://localhost:8020 nova-points-redistribute-v2",
-    "create-local": "graph create nova-points-redistribute-v3 --node http://3.114.68.110:8020",
-    "deploy-local": "graph deploy nova-points-redistribute-v3 --ipfs http://3.114.68.110:5001 --node http://3.114.68.110:8020",
-    "remove-local": "graph remove --node http://3.114.68.110:8020 nova-points-redistribute-v2",
+    "create": "graph create nova-points-redistribute-v4 --node http://localhost:8020",
+    "deploy": "graph deploy nova-points-redistribute-v4  --ipfs http://localhost:5001 --node http://localhost:8020/",
+    "remove": "graph remove --node http://localhost:8020 nova-points-redistribute-v3",
+    "create-local": "graph create nova-points-redistribute --node http://3.114.68.110:8020",
+    "deploy-local": "graph deploy nova-points-redistribute --ipfs http://3.114.68.110:5001 --node http://3.114.68.110:8020 -l 0.0.1",
+    "remove-local": "graph remove --node http://3.114.68.110:8020 nova-points-redistribute",
     "test": "graph test"
   },
   "dependencies": {
